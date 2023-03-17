@@ -56,10 +56,6 @@ public class UnitTest {
         ObjectSet<GameObject> result = new ObjectSet<>();
         octree.query(gameObject3.box, result);
 
-        for (GameObject gameObject : result) {
-            System.out.println(gameObject.toString());
-        }
-
         assertEquals(2, result.size);
     }
 
