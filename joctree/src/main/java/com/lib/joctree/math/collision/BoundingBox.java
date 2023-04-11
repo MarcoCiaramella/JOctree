@@ -306,13 +306,17 @@ public class BoundingBox implements Serializable {
 		float lx = Math.abs(this.cnt.x - b.cnt.x);
 		float sumx = (this.dim.x / 2.0f) + (b.dim.x / 2.0f);
 
+		if (lx > sumx) return false;
+
 		float ly = Math.abs(this.cnt.y - b.cnt.y);
 		float sumy = (this.dim.y / 2.0f) + (b.dim.y / 2.0f);
+
+		if (ly > sumy) return false;
 
 		float lz = Math.abs(this.cnt.z - b.cnt.z);
 		float sumz = (this.dim.z / 2.0f) + (b.dim.z / 2.0f);
 
-		return (lx <= sumx && ly <= sumy && lz <= sumz);
+		return lz <= sumz;
 	}
 
 	/** Returns whether the given vector is contained in this bounding box.
